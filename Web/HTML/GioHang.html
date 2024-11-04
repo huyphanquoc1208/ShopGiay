@@ -30,5 +30,90 @@
         </ul>
         <input type="text" placeholder=" Nhập sản phẩm cần tìm kiếm">
     </div>
+    
+    <div class="giohang">
+        <div class="giohang-left">
+            <h1>Sản phẩm trong giỏ hàng</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Kích thước</th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="cartDisplay">
+                    <!-- Sản phẩm sẽ được thêm vào đây -->
+                </tbody>
+            </table>
+            <h2>Tổng thanh toán: <span id="totalAmount">0 VND</span></h2>
+        </div>
+    </div>
+
+    <script>
+    // Hàm để hiển thị giỏ hàng
+    function displayCart() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartDisplay = document.getElementById("cartDisplay");
+        cartDisplay.innerHTML = ""; // Xóa nội dung cũ
+        
+        let totalAmount = 0;
+
+        cart.forEach((item, index) => {
+            const totalProduct = item.price * item.quantity; // Tính tổng cho sản phẩm
+            totalAmount += totalProduct;
+
+            // Thêm hàng vào bảng giỏ hàng
+            cartDisplay.innerHTML += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.price} VND</td>
+                    <td>${item.size}</td>
+                    <td>${item.quantity}</td>
+                    <td>${totalProduct} VND</td>
+                    <td>
+                        <button class="remove-btn" data-index="${index}">Xóa</button>
+                        <button class="add-btn" data-index="${index}">Thêm</button>
+                    </td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("totalAmount").innerText = totalAmount + " VND";
+
+        // Thêm sự kiện cho nút "Xóa" và "Thêm"
+        const removeButtons = document.querySelectorAll('.remove-btn');
+        const addButtons = document.querySelectorAll('.add-btn');
+
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const index = this.getAttribute('data-index');
+                cart.splice(index, 1); // Xóa sản phẩm khỏi giỏ hàng
+                localStorage.setItem("cart", JSON.stringify(cart)); // Cập nhật localStorage
+                displayCart(); // Cập nhật lại giỏ hàng
+            });
+        });
+
+        addButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const index = this.getAttribute('data-index');
+                const newQuantity = parseInt(prompt("Nhập số lượng mới:", cart[index].quantity));
+                if (!isNaN(newQuantity) && newQuantity > 0) {
+                    cart[index].quantity = newQuantity; // Cập nhật số lượng
+                    localStorage.setItem("cart", JSON.stringify(cart)); // Cập nhật localStorage
+                    displayCart(); // Cập nhật lại giỏ hàng
+                } else {
+                    alert("Vui lòng nhập số lượng hợp lệ.");
+                }
+            });
+        });
+    }
+    // Gọi hàm displayCart khi trang được tải
+    window.onload = displayCart;
+    </script>
+
 </body>
 </html>
