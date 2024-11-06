@@ -190,10 +190,10 @@
 
             // Lấy thông tin sản phẩm từ giỏ hàng
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
-            const product = cart.map(item => item.name).join("; "); // Liệt kê tên sản phẩm
+            const product = cart.map(item => item.name).join("<br>"); // Liệt kê tên sản phẩm ra từng dòng
 
             // Tính tổng số lượng và giá tiền
-            const totalQuantity = cart.reduce((acc, item) => acc + (Number.isInteger(item.quantity) && item.quantity >=0 ? item.quantity : 1), 0);
+            const totalQuantity = cart.reduce((acc, item) => acc + (Number.isInteger(item.quantity) && item.quantity >= 0 ? item.quantity : 1), 0);
             const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0); // Tính tổng giá tiền
 
             // Hiển thị thông tin vào bảng
@@ -201,7 +201,7 @@
             document.getElementById('phone').textContent = phone;
             document.getElementById('email').textContent = email;
             document.getElementById('address').textContent = address;
-            document.getElementById('product').textContent = product;
+            document.getElementById('product').innerHTML = product; // Hiển thị sản phẩm với <br>
             document.getElementById('total-quantity').textContent = totalQuantity; // Hiển thị tổng số lượng
             document.getElementById('price').textContent = totalPrice.toLocaleString() + " VND"; // Tổng giá tiền
             document.getElementById('payment-method-display').textContent = paymentMethod;
