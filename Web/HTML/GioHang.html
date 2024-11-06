@@ -28,7 +28,7 @@
             <li><a href="../HTML/GioHang.html">Giỏ hàng</a></li>
             <li><a href="../HTML/TaiKhoan.html">Tài khoản</a></li>
         </ul>
-        <input type="text" placeholder=" Nhập sản phẩm cần tìm kiếm">
+        <input class="search" type="text" placeholder=" Nhập sản phẩm cần tìm kiếm">
     </div>
     
     <div class="giohang">
@@ -50,6 +50,28 @@
                 </tbody>
             </table>
             <h2>Tổng thanh toán: <span id="totalAmount">0 VND</span></h2>
+            <button id="checkout-button">Thanh toán</button>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nhập Thông Tin</h2>
+            <form id="paymentForm">
+                <input type="text" placeholder="Tên" required>
+                <input type="text" placeholder="Số Điện Thoại" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Địa Chỉ" required>
+                <select required>
+                    <option value="">Hình Thức Thanh Toán</option>
+                    <option value="chuyển khoản">Chuyển Khoản</option>
+                    <option value="tiền mặt">Tiền Mặt</option>
+                    <option value="tại cửa hàng">Tại Cửa Hàng</option>
+                </select>
+                <button type="submit">Xác Nhận Thanh Toán</button>
+            </form>
         </div>
     </div>
 
@@ -113,6 +135,23 @@
     }
     // Gọi hàm displayCart khi trang được tải
     window.onload = displayCart;
+
+    
+    // Modal
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("checkout-button");
+    var span = document.getElementsByClassName("close")[0];
+
+    // Khi nhấn nút "Thanh toán", mở modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // Khi nhấn "x", đóng modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
     </script>
 
 </body>
