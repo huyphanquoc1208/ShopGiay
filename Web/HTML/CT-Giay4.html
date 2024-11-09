@@ -9,8 +9,8 @@
 <body>
     <div class="top">
         <div class="top-left">
-            <a href="../HTML/index.html">
-                <img src="../IMG/Logo.png" link="../HTML/index.html" alt="">
+            <a href="../HTML/TrangChu.html">
+                <img src="../IMG/Logo.png" link="../HTML/TrangChu.html" alt="">
             </a>
         </div>
         <div class="top-right">
@@ -23,7 +23,7 @@
 
     <div class = "menu">
         <ul>
-            <li><a href="../HTML/index.html">Trang chủ</a></li>
+            <li><a href="../HTML/TrangChu.html">Trang chủ</a></li>
             <li><a href="../HTML/GioiThieu.html">Giới thiệu</a></li>
             <li><a href="../HTML/GioHang.html">Giỏ hàng</a></li>
             <li><a href="../HTML/TaiKhoan.html">Tài khoản</a></li>
@@ -33,11 +33,11 @@
 
     <div class = "info">
         <div class = "info-left">
-            <img src="../IMG/nk4.jpg" alt="">
+            <img src="../IMG/nk4.png" alt="">
         </div>
-        <div class = "info-right">
-            <h1 style="color: #fff;">Nike Blazer Low - Leather White Black</h1>
-            <p>1.200.000 VND</p>
+        <div class="info-right">
+            <h1>Nike Blazer Low Vintage – White/Black</h1>
+            <p>1.000.000 VND</p>
             <div class="size-options">
                 <div class="size-option" data-size="38" onclick="selectSize(this)">38</div>
                 <div class="size-option" data-size="39" onclick="selectSize(this)">39</div>
@@ -45,7 +45,7 @@
                 <div class="size-option" data-size="41" onclick="selectSize(this)">41</div>
                 <div class="size-option" data-size="42" onclick="selectSize(this)">42</div>
             </div>
-
+            
             <!-- Phần nhập số lượng -->
             <div class="quantity-container">
                 <label>Số lượng:</label>
@@ -57,31 +57,29 @@
             </div>
         </div>
 
-        </div>
         <div class="info-content">
+            <img src="../IMG/nk4-nc1.png" alt="">
+            <img src="../IMG/nk4-nc2.png" alt="">
+            <img src="../IMG/nk8.jpg" alt="">
             <h2>Thiết kế</h2>
-            <p>Chất liệu: Giày thường được làm từ canvas, mang lại sự nhẹ nhàng và thoải mái.<br>
-                Phong cách: Thiết kế thường tối giản nhưng hiện đại, dễ phối đồ với nhiều loại trang phục.
+            <p>Chất liệu: Chất liệu da lộn và vải canvas tạo nên sự bền bỉ và thoải mái khi mang.<br>
+                Phong cách: Thiết kế đơn giản, mang phong cách vintage với phối màu trắng và đen.
             </p>
-            <img src="../IMG/ctcv.jpg" alt="">
-            <img src="../IMG/ctcv1.jpg" alt="">
-            <img src="../IMG/ctcv2.jpg" alt="">
         </div>
         <div class="info-content1">
             <h2>Tính Năng</h2>
-            <p>Đế giày: Đế cao su với độ bám tốt, giúp tăng cường khả năng di chuyển trên sân bóng.<br>
+            <p>Đế giày: Đế cao su dày chắc chắn, mang lại độ bám và độ êm ái khi di chuyển.<br>
                 Hỗ trợ: Một số mẫu có thêm lớp đệm ở bên trong để tăng cường sự thoải mái khi di chuyển.
             </p>
         </div>
-        <div class="info-content1">
+        <div class="info-content2">
             <h2>Đối Tượng Sử Dụng</h2>
-            <p>Chơi thể thao: Phù hợp cho các hoạt động thể thao như bóng rổ.<br>
-                Thời trang hàng ngày: Có thể mặc trong các dịp thường ngày, đi dạo phố.
+            <p>Đây là một lựa chọn classic, năng động và phù hợp với nhiều đối tượng người dùng, từ học sinh, sinh viên đến những người trẻ yêu thích phong cách thể thao.<br>
             </p>
         </div>
     </div>
     <div class="footer">
-        <img src="../IMG/logo-ctsp-cv.jpg" alt="">
+        <img src="../IMG/nike.jpg" alt="">
     </div>
 
     <script>
@@ -101,11 +99,11 @@
             }
 
             const product = {
-                name: "Nike Blazer Low - Leather White Black",
-                price: 1200000,
+                name: "TRIBU CANVAS BASKETBALL SNEAKER",
+                price: 1000000,
                 size: selectedSize.getAttribute('data-size'),
                 quantity: quantity,
-                total: 1200000 * quantity
+                total: 1000000 * quantity
             };
 
             let cart = JSON.parse(localStorage.getItem("cart")) || [];

@@ -5,7 +5,7 @@
 
 body{
     width: 100%;
-    height: 1700px;
+    height: 1500px;
 }
 
 .top{
@@ -45,7 +45,7 @@ body{
     font-size: 20px;
 
 }
-
+/*Má»¥c*/
 .menu{
     background-color: #000;
     height: 60px;
@@ -55,8 +55,8 @@ body{
 }
 
 .menu input{            
-    background: transparent; /* Nền trong suốt */
-    border: 3px solid #423e3e; /* Đường viền */
+    background: transparent; /* Ná»n trong suá»‘t */
+    border: 3px solid #423e3e; /* ÄÆ°á»ng viá»n */
     width: 30%;
     height: 40px;
     margin-top: 6px;
@@ -109,10 +109,7 @@ body{
     padding-top: 20px;
     text-align: center  ;
 }
-
-/*------------------------------*/
-
-
+/*Giá»›i thiá»‡u*/
 .about-section {
     text-align: center;
     padding: 50px 20px;
@@ -213,12 +210,45 @@ body{
     background-color: #ddd;
 }
 
-.footer{
+.footer {
     background-color: #333;
     color: #fff;
-    height: 80px;
-    justify-content: space-around;
     padding: 40px 20px;
-    text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-section {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.footer-column {
+    flex: 1;
+    margin: 0 20px;
+    text-align: left;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-column p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.footer-column p a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer-column p a:hover {
+    color: red;
 }
